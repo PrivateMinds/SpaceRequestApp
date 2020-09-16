@@ -1,0 +1,112 @@
+﻿@model SpaceRequestDataModel.SpaceRequest
+
+@{
+    string RequestorName = ViewBag.RequestorName;
+}
+<div style="background-color: #677083;color:white;height:100px;margin-top:.6em;">
+
+    <div style="font-size:1em;font-weight: bold;margin-bottom:3px;margin-left:.9em">KPWHRI Space Request Intake Form</div>
+
+    <div style="margin-left:.9em">
+        To request space for a new employee or a relocation of an existing employee, please complete the following form. For details of KPWHRI's Space Assignment Policy,
+        please review the policy on KPWHRI's Intranet located here. The Space and Facilities Committee generally meets twice monthly to discuss submitted requests.
+    </div>
+</div>
+
+@*Form Tag Helper
+    To create a form we use the <form> tag helper.Notice, we are using asp-controller and asp-action tag helpers. These 2 tag helpers specify the controller and the action method to
+    which the form data must be posted when the form is submitted. We want to issue a POST request when the form is submitted, so we have set the method attribute to post*@
+@*when the form is submitted it will be posted to the Create action of the SpaceRequest Controller.*@
+
+<form id="Form" asp-controller="SpaceRequest" asp-action="Create" method="post" class="mt-3">
+    <div class="form-group row">
+        <label asp-for="RequestorName" class="col-sm-2 col-form-label">Requestor:</label>
+        <div class="col-sm-5">
+            @if (RequestorName != "")
+            {
+                <input asp-for="RequestorName" class="form-control" value="@(ViewBag.RequestorName)" readonly>
+            }
+            else
+            {
+                <input asp-for="RequestorName" class="form-control" placeholder="Requestor Name is Required">
+
+            }
+        </div>
+        <span asp-validation-for="RequestorName" class="text-danger" style="margin-top:4px;font-size:.9em;"></span>
+    </div>
+    <div class="form-group row">
+        <label asp-for="EmpName" class="col-sm-2 col-form-label"></label>
+        <div class="col-sm-5">
+            <input asp-for="EmpName" class="form-control" placeholder="Requested For is required">
+        </div>
+        <span asp-validation-for="EmpName" class="text-danger" style="margin-top:4px;font-size:.9em;"></span>
+
+        <br /><br />
+        <div style="margin-left:17em;font-weight:bold;font-size:.9em">Note: Requests for space must be made by the person’s supervisor</div>
+    </div>
+
+    <div class="form-group row">
+        <label asp-for="FTE" class="col-sm-2 col-form-label"></label>
+        <div class="col-sm-5">
+            <input asp-for="FTE" value='' class="form-control" placeholder="FTE is required:">
+        </div>
+        <span asp-validation-for="FTE" class="text-danger" style="margin-top:4px;font-size:.9em;"></span>
+
+        @*<div style="color:red;margin-top:4px;font-size:.9em;visibility:hidden" class="col-sm- col-form-label">Please enter a valid integer or a decimal number with 2 decimal places.</div>*@
+        <br /><br />
+        <div style="margin-left:17em;font-weight:bold;font-size:.9em;">Note: FTE < 0.5 may be asked to use hoteling or share a space; FTE between 0.5 and 0.74 are only generally eligible for interior cubes.</div>
+
+    </div>
+    <div class="form-group row">
+        <label asp-for="FTE_MPE" class="col-sm-2 col-form-label"></label>
+        <div class="col-sm-5">
+            <input asp-for="FTE_MPE" value='' class="form-control" placeholder="FTE at MPE is required">
+        </div>
+        <span asp-validation-for="FTE_MPE" class="text-danger" style="margin-top:4px;font-size:.9em;"></span>
+
+        @*<div style="color:red;margin-top:4px;font-size:.9em;visibility:hidden" class="col-sm- col-form-label">Please enter a valid integer or a decimal number with 2 decimal places.</div>*@
+        <br /><br />
+        <div style="margin-left:17em;font-weight:bold;font-size:.9em">Note: Do not include time telecommuting or working elsewhere. FTE at MPE < 0.5 may be asked to use hoteling or shared space.</div>
+
+    </div>
+    <div class="form-group row">
+        <label asp-for="CurrentSpace" class="col-sm-2 col-form-label"></label>
+        <div class="col-sm-5">
+            <input asp-for="CurrentSpace" class="form-control" placeholder="Current Space is required">
+        </div>
+        <span asp-validation-for="CurrentSpace" class="text-danger" style="margin-top:4px;font-size:.9em;"></span>
+    </div>
+    <div class="form-group row">
+        <label asp-for="JobTitle" class="col-sm-2 col-form-label"></label>
+        <div class="col-sm-5">
+            <input asp-for="JobTitle" class="form-control" placeholder="Job Tittle is required">
+        </div>
+        <span asp-validation-for="JobTitle" class="text-danger" style="margin-top:4px;font-size:.9em;"></span>
+
+    </div>
+    <div class="form-group row">
+        <label asp-for="PayBand" class="col-sm-2 col-form-label"></label>
+        <div class="col-sm-5">
+            <input asp-for="PayBand" class="form-control" placeholder="Pay Grade is required">
+        </div>
+        <span asp-validation-for="PayBand" class="text-danger" style="margin-top:4px;font-size:.9em;"></span>
+
+    </div>
+    <div class="form-group row">
+        <label asp-for="SpaceDescription" class="col-sm-2 col-form-label"></label>
+        <div class="col-sm-10">
+            <textarea id="TextArea1" rows="4" asp-for="SpaceDescription" class="form-control"
+                      placeholder=" Please describe your space request including preference of floor or proximity to colleagues.
+                           For new hires, please include the person’s start date.Space Description is required "></textarea>
+        </div>
+
+        <span asp-validation-for="SpaceDescription" class="text-danger" style="margin-left:17em;font-weight:bold;font-size:.9em;"></span>
+    </div>
+
+    <div class="form-group row" style="text-align:center">
+        <div class="col-sm-10">
+            <button id="SUBMIT" class="btn btn-primary">SUBMIT</button>
+        </div>
+    </div>
+</form>
+

@@ -1,0 +1,89 @@
+﻿@model ViewModel
+
+<table class="table table-bordered  table-responsive" style="width: 100%;">
+    <thead style="background-color:#677083;color:white">
+        <tr>
+            <th style="width:1%">
+
+            </th>
+            <th style="text-align:center;font-size:8pt;width:5%;">
+                ID
+            </th>
+            <th style="text-align:center;font-size:8pt;width:5%;">
+                RequestorID
+            </th>
+            <th style="text-align:center;font-size:8pt;width:15%;">
+                RequestorName
+            </th>
+            <th style="text-align:center;font-size:8pt;width:10%;">
+                EmpName
+            </th>
+            <th style="text-align:center;font-size:8pt;width:5%;">
+                FTE
+            </th>
+            <th style="text-align:center;font-size:8pt;width:5%;">
+                FTE_MPE
+            </th>
+            <th style="text-align:center;font-size:8pt;width:10%;">
+                CurrentSpace
+            </th>
+            <th style="text-align:center;font-size:8pt;width:15%;">
+                JobTitle
+            </th>
+            <th style="text-align:center;font-size:8pt;width:5%;">
+                PayBand
+            </th>
+            <th style="text-align:center;font-size:8pt;width:25%;">
+                SpaceDescription
+            </th>
+        </tr>
+
+    </thead>
+    @if (Model.SpaceRequestList != null)
+    {
+
+        foreach (var item in Model.SpaceRequestList)
+        {
+
+
+<tr style="font-family:Arial; font-size:9pt;">
+    <td>
+        <img id="EditGrant" data-id="@item.SpaceRequestID" src="~/images/button_CalendarEdit256.png" style="width:25px;height:25px" title="Click icon to edit record" />
+
+    </td>
+    <td style="text-align:center;">
+        @item.SpaceRequestID
+    </td>
+    <td style="text-align:center;">
+        @item.RequestorID
+    </td>
+
+    <td>
+        @item.RequestorName
+    </td>
+
+    <td>
+        @item.EmpName
+    </td>
+    <td>
+        @item.FTE
+    </td>
+    <td>
+        @item.FTE_MPE
+    </td>
+    <td>
+        @item.CurrentSpace
+    </td>
+    <td>
+        @item.JobTitle
+    </td>
+    <td>
+        @item.PayBand
+    </td>
+    <td>
+        @item.SpaceDescription
+    </td>
+</tr>
+        }
+    }
+</table>

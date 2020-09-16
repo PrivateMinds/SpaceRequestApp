@@ -1,0 +1,25 @@
+﻿
+@model ViewModel
+
+<div>
+    <table style="width:100%; margin:auto">
+        <tr>
+            <td style="width:100%; vertical-align:top;">
+                <div id="divAddNewRequest">
+
+                    @*<partial name="Create" model="Model" />*@
+                    <partial name="AddNewRequest" model="Model" />
+
+
+                </div>
+            </td>
+
+        </tr>
+
+       
+
+
+    </table>
+
+</div>
+@Html.Hidden("LOOP", 0, new { id= "txtStopLoop"})
