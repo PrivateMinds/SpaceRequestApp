@@ -1,0 +1,9 @@
+C:\Users\k164913\AspNetCore Trainings\SpaceRequestDataModel\bin\Release\netstandard2.0\SpaceRequestDataModel.deps.json
+C:\Users\k164913\AspNetCore Trainings\SpaceRequestDataModel\bin\Release\netstandard2.0\SpaceRequestDataModel.dll
+C:\Users\k164913\AspNetCore Trainings\SpaceRequestDataModel\bin\Release\netstandard2.0\SpaceRequestDataModel.pdb
+C:\Users\k164913\AspNetCore Trainings\SpaceRequestDataModel\obj\Release\netstandard2.0\SpaceRequestDataModel.csprojAssemblyReference.cache
+C:\Users\k164913\AspNetCore Trainings\SpaceRequestDataModel\obj\Release\netstandard2.0\SpaceRequestDataModel.AssemblyInfoInputs.cache
+C:\Users\k164913\AspNetCore Trainings\SpaceRequestDataModel\obj\Release\netstandard2.0\SpaceRequestDataModel.AssemblyInfo.cs
+C:\Users\k164913\AspNetCore Trainings\SpaceRequestDataModel\obj\Release\netstandard2.0\SpaceRequestDataModel.csproj.CoreCompileInputs.cache
+C:\Users\k164913\AspNetCore Trainings\SpaceRequestDataModel\obj\Release\netstandard2.0\SpaceRequestDataModel.dll
+C:\Users\k164913\AspNetCore Trainings\SpaceRequestDataModel\obj\Release\netstandard2.0\SpaceRequestDataModel.pdb

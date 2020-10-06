@@ -4,6 +4,7 @@ using System.Linq;
 using System.Threading.Tasks;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
+using Microsoft.AspNetCore.Http;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
@@ -29,7 +30,7 @@ namespace SpaceRequest
           
             services.AddControllersWithViews();
             services.AddControllersWithViews().AddNewtonsoftJson();
-
+            services.AddSingleton<IHttpContextAccessor, HttpContextAccessor>();
             //UseSqlServer() extension method is used to configure our application specific DbContext class to use Microsoft    SQL Server as the database.
             // To connect to a database, we need the database connection string which is provided as a parameter to  UseSqlServer() extension method
 

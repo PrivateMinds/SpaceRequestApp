@@ -2,151 +2,178 @@
 
 @{
     string username = ViewBag.RequestorName;
+    //string u = ViewBag.UserID;
 }
 
-<div style="background-color: #677083;color:white;height:100px;margin-top:.6em;">
+<div style="background-color: #677083;color:white;height:110px;margin-top:1em;border-radius:4px">
 
-    <div style="font-size:1em;font-weight: bold;margin-bottom:3px;margin-left:.9em">KPWHRI Space Request Intake Form</div>
+    <div style="font-size:1.2em;font-weight: bold;margin-bottom:3px;margin-left:1em;text-align:center">KPWHRI Space Request Intake Form.</div>
 
-    <div style="margin-left:.9em">
+    <div style="margin-left:.3em">
         To request space for a new employee or a relocation of an existing employee, please complete the following form. For details of KPWHRI's Space Assignment Policy,
-        please review the policy on KPWHRI's Intranet located here. The Space and Facilities Committee generally meets twice monthly to discuss submitted requests.
+        please review the policy on KPWHRI's Intranet located <a style="color:aqua" href="http://kpwhri-intranet.ghc.org/policies/office_space/poloffice_home.html">here</a>. The Space and Facilities Committee generally meets twice monthly<br /> to  discuss submitted requests.
     </div>
 </div>
-<br />
+@*@Html.TextBox("m => m.RequestorName", u, new { id = "txtRequestor", @class = "form-control ", @readonly = true, @disabled = true })*@
 
-<table style="font-size:.9em;width:100%">
-    <tr>
-        <td style="width:15%">
-            Space RequestID
-        </td>
-        <td style="width:75%">
-            @Html.TextBoxFor(m => m.SpaceRequest.SpaceRequestID, new { id = "txtSpaceRequestID", @class = "form-control", @readonly = true, @disabled = true })
-            @Html.DropDownListFor(m => m.SpaceRequest.RequestorID, new SelectList(Model.SpaceRequestList, "RequestorID", "RequestorName"), new { @id = "cboSpaceRequest", @class = "form-control standardTextBox95" })
+<div style="width:100%;background-color: #E9EBEE;margin-top:.5em;border-radius:4px">
+    <table style="font-size:.8em;width:100%;">
+        @*<tr>
+                <td style="width:15%">
+                    Space RequestID
+                </td>
+                <td style="width:75%">
+                    @Html.TextBoxFor(m => m.SpaceRequest.SpaceRequestID, new { id = "txtSpaceRequestID", @class = "form-control", @readonly = true, @disabled = true })
+                    @Html.DropDownListFor(m => m.SpaceRequest.RequestorID, new SelectList(Model.SpaceRequestList, "RequestorID", "RequestorName"), new { @id = "cboSpaceRequest", @class = "form-control standardTextBox95" })
 
-        </td>
-    </tr>
-    <tr>
-        <td >
-            Requestor Name:
-        </td>
-        <td >
-            @Html.TextBox("m => m.RequestorName", username, new { id = "txtRequestor", @class = "form-control", @readonly = true, @disabled = true })
+                </td>
+            </tr>*@
+        <tr>
+            <td style="width:13%;padding-left:10px">
+                Requestor Name:
+            </td>
+            <td style="width:35%">
+                @Html.TextBox("m => m.RequestorName", username, new { id = "txtRequestor", @class = "form-control ", @readonly = true, @disabled = true })
 
-        </td>
-    </tr>
-    <tr><td style="padding-top:10px"></td></tr>
-    <tr>
-        <td>
-            Requested For:
-        </td>
-        <td>
-            @Html.TextBoxFor(m => m.SpaceRequest.EmpName, new { id = "txtRequestorFor", @class = "form-control", @placeholder = "Required" })
+            </td>
+            <td style="width:52%">
+            </td>
+        </tr>
+        <tr><td style="padding-top:10px"></td></tr>
+        <tr>
+            <td style="padding-left: 10px">
+                Requested For:
+            </td>
+            <td>
+                @Html.TextBoxFor(m => m.SpaceRequest.EmpName, new { id = "txtRequestorFor", @class = "form-control", @placeholder = "Required" })
 
-        </td>
+            </td>
 
-    </tr>
-    <tr>
-        <td></td>
-        <td>
-            <div style="margin-bottom:.5em;font-weight:bold;">Note: Requests for space must be made by the person’s supervisor.</div>
-        </td>
-    </tr>
-    <tr>
-        <td>
-            Person's FTE:
-        </td>
-        <td>
-            @Html.TextBoxFor(m => m.SpaceRequest.FTE, new { id = "txtFTE", @class = "form-control", @placeholder = "Required" })
-        </td>
+        </tr>
 
-    </tr>
-    <tr>
-        <td></td>
-        <td>
-            <div style="margin-bottom:.5em;font-weight:bold;">Note: FTE < 0.5 may be asked to use hoteling or share a space; FTE between 0.5 and 0.74 are only generally eligible for interior cubes.</div>
-        </td>
-    </tr>
-    <tr>
-        <td>
-            Person's FTE-MPE:
-        </td>
-        <td>
-            <div style="margin-bottom:.6em">
-                @Html.TextBoxFor(m => m.SpaceRequest.FTE_MPE, new { id = "txtFTEMPE", @class = "form-control", @placeholder = "Required" })
-            </div>
-        </td>
+    </table>
+    <table style="font-size:.8em;width:100%">
+        <tr>
+            <td style="width:13%"></td>
+            <td style="width:70%">
+                <div style="margin-bottom:.5em;font-weight:bold;font-size:1em;">Note: Requests for space must be made by the person’s supervisor.</div>
+            </td>
+            <td style="width:17%"></td>
+        </tr>
+    </table>
+    <table style="font-size:.8em;width:100%">
+        <tr>
+            <td style="width:13%;padding-left:10px">
+                Person's FTE:
+            </td>
+            <td style="width:35%">
+                @Html.TextBoxFor(m => m.SpaceRequest.FTE, new { id = "txtFTE", @class = "form-control", @placeholder = "Required" })
+            </td>
+            <td style="width:52%">
+            </td>
+        </tr>
+    </table>
+    <table style="font-size:.8em;width:100%">
+        <tr>
+            <td style="width:13%;"></td>
+            <td style="width:80%;">
+                <div style="margin-bottom:.5em;font-weight:bold;font-size:1em">Note: FTE < 0.5 may be asked to use hoteling or share a space; FTE between 0.5 and 0.74 are only generally eligible for interior cubes.</div>
+            </td>
+            <td style="width:7%"></td>
+        </tr>
+    </table>
+    <table style="font-size:.8em;width:100%">
+        <tr>
+            <td style="width:13%;padding-left:10px">
+                Person's FTE-MPE:
+            </td>
+            <td style="width:35%;">
+                <div style="margin-bottom:.6em">
+                    @Html.TextBoxFor(m => m.SpaceRequest.FTE_MPE, new { id = "txtFTEMPE", @class = "form-control", @placeholder = "Required" })
+                </div>
+            </td>
+            <td style="width:52%">
+            </td>
+        </tr>
+    </table>
+    <table style="font-size:.8em;width:100%">
+        <tr>
+            <td style="width:13%;"></td>
+            <td style="width:70%;">
+                <div style="margin-bottom:.5em;font-weight:bold;font-size:1em">Note: Do not include time telecommuting or working elsewhere. FTE at MPE < 0.5 may be asked to use hoteling or shared space.</div>
+            </td>
+            <td style="width:17%"></td>
+        </tr>
+    </table>
+    <table style="font-size:.8em;width:100%">
+        <tr>
+            <td style="width:13%;padding-left:10px">
+                Person's Current Space:
+            </td>
+            <td style="width:35%;">
+                <div style="margin-bottom:.6em">
+                    @Html.TextBoxFor(m => m.SpaceRequest.CurrentSpace, new { id = "txtFCurrentSpace", @class = "form-control", @placeholder = "Required" })
+                </div>
+            </td>
+            <td style="width:52%"></td>
+        </tr>
+        <tr>
+            <td style="padding-left: 10px">
+                Person's Job Title:
+            </td>
+            <td>
+                <div style="margin-bottom:.6em">
+                    @Html.TextBoxFor(m => m.SpaceRequest.JobTitle, new { id = "txtJobTitle", @class = "form-control", @placeholder = "Required" })
+                </div>
+            </td>
+            <td></td>
+        </tr>
+        <tr>
+            <td style="padding-left: 10px">
+                Person's PayBand:
+            </td>
+            <td>
+                <div style="margin-bottom:.6em">
+                    @Html.TextBoxFor(m => m.SpaceRequest.PayBand, new { id = "txtPayBand", @class = "form-control", @placeholder = "Required" })
+                </div>
+            </td>
+            <td></td>
+        </tr>
+    </table>
+    <table style="font-size:.8em;width:100%">
+        <tr>
+            <td style="width:13%;padding-left:10px">
+                Space Description:
+            </td>
+            <td style="width:65%;">
+                <div style="margin-bottom:.9em;font-size:.3em">
+                    @Html.TextAreaFor(m => m.SpaceRequest.SpaceDescription, new
+                    {
+                        id = "txtDescription",
+                        @class = "form-control",
+                        rows = 3,
+                        @placeholder = "(Required). Please describe your space request including preference of floor or proximity to colleagues. For new hires,please include the person’s start date."
+                    })
 
-    </tr>
-    <tr>
-        <td></td>
-        <td>
-            <div style="margin-bottom:.5em;font-weight:bold;">Note: Do not include time telecommuting or working elsewhere. FTE at MPE < 0.5 may be asked to use hoteling or shared space.</div>
-        </td>
-    </tr>
-    <tr>
-        <td>
-            Person's Current Space:
-        </td>
-        <td>
-            <div style="margin-bottom:.6em">
-                @Html.TextBoxFor(m => m.SpaceRequest.CurrentSpace, new { id = "txtFCurrentSpace", @class = "form-control", @placeholder = "Required" })
-            </div>
-        </td>
+                </div>
+            </td>
+            <td style="width:28%"></td>
 
-    </tr>
-    <tr>
-        <td>
-            Person's Job Title:
-        </td>
-        <td>
-            <div style="margin-bottom:.6em">
-                @Html.TextBoxFor(m => m.SpaceRequest.JobTitle, new { id = "txtJobTitle", @class = "form-control", @placeholder = "Required" })
-            </div>
-        </td>
-        <td>*</td>
-    </tr>
-    <tr>
-        <td>
-            Person's PayBand:
-        </td>
-        <td>
-            <div style="margin-bottom:.6em">
-                @Html.TextBoxFor(m => m.SpaceRequest.PayBand, new { id = "txtPayBand", @class = "form-control", @placeholder = "Required" })
-            </div>
-        </td>
-    </tr>
-    <tr>
-        <td>
-            Space Description:
-        </td>
-        <td>
-            <div style="margin-bottom:.9em;font-size:.3em">
-                @Html.TextAreaFor(m => m.SpaceRequest.SpaceDescription, new
-                {
-                    id = "txtDescription",
-                    @class = "form-control",
-                    rows = 5,
-                    @placeholder = "Please describe your space request including preference of floor or proximity to colleagues.For new hires,please include the person’s start date.(Required)"
-                })
+        </tr>
+        <tr><td style="padding-top:10px"></td></tr>
 
-            </div>
-        </td>
+        <tr>
+            <td></td>
+            <td>
+                <div style="float:right; margin-right:24em">
+                    <button id="btnSubmitRequest" type="button" class="btn btn-info btn-lg">SUBMIT</button>
+                </div>
+            </td>
+        </tr>
+        <tr><td style="padding-top:10px"></td></tr>
+    </table>
 
-    </tr>
-    <tr><td style="padding-top:10px"></td></tr>
-
-    <tr>
-        <td></td>
-        <td>
-            <div style="float:right; margin-right:24em">
-                <button id="btnSubmitRequest" type="button" class="btn btn-info btn-lg">SUBMIT</button>
-            </div>
-        </td>
-    </tr>
-</table>
-
-
-<div id="divSpaceRequestDetails"  style="width:100%;visibility:hidden">
-    <partial name="EditRequest" model="Model" />
 </div>
+@*<div id="divSpaceRequestDetails" style="width:100%;visibility:hidden">
+        <partial name="EditRequest" model="Model" />
+    </div>*@

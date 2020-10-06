@@ -3,11 +3,11 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 16
 VisualStudioVersion = 16.0.30011.22
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SpaceRequest", "SpaceRequest.csproj", "{7C00F080-358A-4227-B4B4-FE7EFBF28F08}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "SpaceRequest", "SpaceRequest.csproj", "{7C00F080-358A-4227-B4B4-FE7EFBF28F08}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SpaceRequestDataModel", "..\SpaceRequestDataModel\SpaceRequestDataModel.csproj", "{85204143-EE7B-4B52-BF1B-F4204C157B9C}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "SpaceRequestDataModel", "..\SpaceRequestDataModel\SpaceRequestDataModel.csproj", "{85204143-EE7B-4B52-BF1B-F4204C157B9C}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SpaceRequestDataFactory", "..\SpaceRequestDataFactory\SpaceRequestDataFactory.csproj", "{909E2728-6EFC-4F78-BD6E-F0C9D4F54242}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "SpaceRequestDataFactory", "..\SpaceRequestDataFactory\SpaceRequestDataFactory.csproj", "{909E2728-6EFC-4F78-BD6E-F0C9D4F54242}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution

@@ -1,0 +1,12 @@
+C:\Users\k164913\AspNetCore Trainings\SpaceRequestDataFactory\bin\Release\netstandard2.0\SpaceRequestDataFactory.deps.json
+C:\Users\k164913\AspNetCore Trainings\SpaceRequestDataFactory\bin\Release\netstandard2.0\SpaceRequestDataFactory.dll
+C:\Users\k164913\AspNetCore Trainings\SpaceRequestDataFactory\bin\Release\netstandard2.0\SpaceRequestDataFactory.pdb
+C:\Users\k164913\AspNetCore Trainings\SpaceRequestDataFactory\bin\Release\netstandard2.0\SpaceRequestDataModel.dll
+C:\Users\k164913\AspNetCore Trainings\SpaceRequestDataFactory\bin\Release\netstandard2.0\SpaceRequestDataModel.pdb
+C:\Users\k164913\AspNetCore Trainings\SpaceRequestDataFactory\obj\Release\netstandard2.0\SpaceRequestDataFactory.csprojAssemblyReference.cache
+C:\Users\k164913\AspNetCore Trainings\SpaceRequestDataFactory\obj\Release\netstandard2.0\SpaceRequestDataFactory.AssemblyInfoInputs.cache
+C:\Users\k164913\AspNetCore Trainings\SpaceRequestDataFactory\obj\Release\netstandard2.0\SpaceRequestDataFactory.AssemblyInfo.cs
+C:\Users\k164913\AspNetCore Trainings\SpaceRequestDataFactory\obj\Release\netstandard2.0\SpaceRequestDataFactory.csproj.CoreCompileInputs.cache
+C:\Users\k164913\AspNetCore Trainings\SpaceRequestDataFactory\obj\Release\netstandard2.0\SpaceRequestDataFactory.csproj.CopyComplete
+C:\Users\k164913\AspNetCore Trainings\SpaceRequestDataFactory\obj\Release\netstandard2.0\SpaceRequestDataFactory.dll
+C:\Users\k164913\AspNetCore Trainings\SpaceRequestDataFactory\obj\Release\netstandard2.0\SpaceRequestDataFactory.pdb

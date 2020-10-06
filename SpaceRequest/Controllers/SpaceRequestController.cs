@@ -7,6 +7,7 @@ using SpaceRequestDataFactory;
 using SpaceRequestDataModel;
 using SpaceRequest.Models;
 using Microsoft.AspNetCore.Mvc.Rendering;
+using Microsoft.AspNetCore.Http;
 
 namespace SpaceRequest.Controllers
 {
@@ -14,13 +15,15 @@ namespace SpaceRequest.Controllers
     {
         //Create a reference variable of ISpaceRequestRepository
         private readonly ISpaceRequestRepository _spaceRequestRepository;
+        private readonly IHttpContextAccessor _httpContextAccessor;
 
 
         // Inject an instance of ISpaceRequestRepository through the constructor of SpaceRequestFormController class.
         //Initialize the variable through the constructor
-        public SpaceRequestController(ISpaceRequestRepository SpaceRequestRepository)
+        public SpaceRequestController(ISpaceRequestRepository SpaceRequestRepository, IHttpContextAccessor httpContextAccessor)
         {
             _spaceRequestRepository = SpaceRequestRepository;
+            _httpContextAccessor = httpContextAccessor;
         }
         
             /// <summary>
@@ -53,7 +56,7 @@ namespace SpaceRequest.Controllers
         }
 
         /// <summary>
-        /// 
+        /// //======= THIS METHOD IS NOT IN USE, IT WAS FOR THE TRAINING CLASS DEMO ONLY========
         /// </summary>
         /// <param name="SpaceRequest"></param>
         /// <returns></returns>
@@ -61,7 +64,8 @@ namespace SpaceRequest.Controllers
         public IActionResult Create(SpaceRequestDataModel.SpaceRequest SpaceRequest)
         {
             //Get current user "UserID"
-            string UserID = System.Environment.UserName;
+           // string UserID = System.Environment.UserName; use in development
+            string UserID = _httpContextAccessor.HttpContext.User.Identity.Name; //use in prod
 
             //Invoke GetUserId() method which returns current user information.
             viewuserid UserData = GetUserId();
@@ -154,8 +158,24 @@ namespace SpaceRequest.Controllers
         {
             var NewInsertedID = 0;
             var Requestor = "";
-            string UserID = System.Environment.UserName;
+            //Get current user "UserID"
+            // string UserID = System.Environment.UserName; //use in development
+            //============================================================================================================
+            //use in prod ONLY
+            string UserID = _httpContextAccessor.HttpContext.User.Identity.Name;
+            if (UserID.Substring(0, 2) == "CS")
+            {
 
+                UserID = UserID.Substring(3);
+
+            }
+            else
+            {
+
+                UserID = UserID.Substring(10);
+
+            }
+            //=================================================================================================================
             viewuserid UserData = GetUserId();
 
 
@@ -190,9 +210,11 @@ namespace SpaceRequest.Controllers
         /// <returns></returns>
         public viewuserid GetUserId()
         {
-            //Get UserID
-            string UserID = System.Security.Principal.WindowsIdentity.GetCurrent().Name;
+            //Get current  "UserID"
 
+//==================================================================================================================================
+/// use in development ONLY
+            string UserID = System.Security.Principal.WindowsIdentity.GetCurrent().Name;
             string DomainName = UserID.Substring(0, 9);
             if (DomainName.Substring(0, 2) == "CS")
             {
@@ -204,9 +226,34 @@ namespace SpaceRequest.Controllers
                 UserID = UserID.Substring(10);
 
             }
+            //END OF :use in development ONLY
+            //===============================================================================================================================================
 
+            //////use in production ONLY
+            //string UserID = _httpContextAccessor.HttpContext.User.Identity.Name;
+            //UserID = "GHCMASTER\\calijr1"; //GHCMASTER USER TEST VALUE.
+            //ViewBag.UserID = UserID;
+
+            //string DomainName = "";//UserID.Substring(0, 9);
+            //if (UserID.Substring(0, 2) == "CS")
+            //{
+            //    DomainName = UserID.Substring(0, 2);
+            //    UserID = UserID.Substring(3);
+
+            //    //ViewBag.UserID = UserID;
+            //}
+            //else
+            //{
+            //    DomainName = UserID.Substring(0, 9);
+            //    UserID = UserID.Substring(10);
+            //    ViewBag.UserID = DomainName;
+            //}
+            //END OF : use in production ONLY
+
+            //===========================================================================================================================================
             //Call the GetSingleUserId method from your repository and pass the expected parameters
             viewuserid VIewUserID = _spaceRequestRepository.GetSingleUserId(UserID, DomainName);
+            //ViewBag.UserID = VIewUserID.FirstName;
 
             return VIewUserID;
         }

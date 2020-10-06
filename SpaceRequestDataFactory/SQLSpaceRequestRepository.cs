@@ -19,7 +19,7 @@ namespace SpaceRequestDataFactory
             this.context = Context;
         }
 
-        //This method will retun single user data from viewuserid using a stored procedure
+        ///This method will retun single user data from viewuserid using a stored procedure.
         public SpaceRequestDataModel.viewuserid GetSingleUserId(string UserID, string DomainName)
         {
             //initialize your class.
